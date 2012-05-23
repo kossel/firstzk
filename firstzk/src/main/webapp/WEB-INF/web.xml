@@ -19,6 +19,13 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 	<display-name>firstzk</display-name>
 
 	<!-- //// -->
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
 	<!-- ZK -->
 	<listener>
 		<description>ZK listener for session cleanup</description>
@@ -221,4 +228,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 	</welcome-file-list>
+	
+	
 </web-app>

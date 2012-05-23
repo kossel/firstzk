@@ -10,6 +10,8 @@ import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.event.ForwardEvent;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
+import org.zkoss.zul.Button;
+import org.zkoss.zul.Grid;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
@@ -26,6 +28,10 @@ public class ContactController extends GenericForwardComposer {
     private Contact _contact = new Contact();
     // wire component as member fields
     private Listbox contactList;
+    private Grid editContactGrid;
+	private Button createContact;
+	private Button updateContact;
+	private Button deleteContact;
     // ...   other components in ZUL
      
     // get singleton ContactManager object for CRUD operation

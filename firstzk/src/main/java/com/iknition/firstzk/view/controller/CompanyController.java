@@ -5,6 +5,8 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
+import org.zkoss.zul.Button;
+import org.zkoss.zul.Grid;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 
@@ -19,6 +21,10 @@ public class CompanyController extends GenericForwardComposer {
     private Company _company = new Company();
     // wire component as member fields
     private Listbox companyList;
+	private Grid editCompanyGrid;
+	private Button createCompany;
+	private Button updateCompany;
+	private Button deleteCompany;
     // other component in ZUL file
  
     // get singleton CompanyManager object for CRUD operation

@@ -7,7 +7,7 @@
  
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/support" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/firstzk" />
         <property name="user" value="root" />
         <property name="password" value="admin" />
     </bean>
@@ -15,7 +15,7 @@
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- set other Hibernate properties in hibernate.cfg.xml file -->
-        <property name="configLocation" value="/WEB-INF/hibernate.cfg.xml" />
+        <property name="configLocation" value="classpath:/hibernate.cfg.xml" />
     </bean>
      
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

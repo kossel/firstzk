@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <hibernate-mapping package="com.iknition.firstzk.beans">
     <class name="Contact" table="contact">
         <id name="idcontact" column="idcontact" type="integer">
