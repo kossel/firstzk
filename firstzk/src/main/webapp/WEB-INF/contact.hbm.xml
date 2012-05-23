@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.iknition.firstzk.beans">
+    <class name="Contact" table="contact">
+        <id name="idcontact" column="idcontact" type="integer">
+            <generator class="increment" />
+        </id>
+        <property name="name" column="name" type="string" />
+        <property name="email" column="email" type="string" />
+        <many-to-one name="company" column="companyId" class="com.iknition.firstzk.beans.Company" outer-join="true" />
+    </class>
+</hibernate-mapping>

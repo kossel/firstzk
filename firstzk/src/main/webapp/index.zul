@@ -1,6 +1,77 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 <zk>
-	<window title="Hello World!!" border="normal" width="500px" 
-		apply="com.iknition.firstzk.DemoWindowComposer">
-		
-	</window>
+	<hlayout>
+	<div id="companyDiv" apply="com.iknition.firstzk.view.controller.CompanyController">
+		<vbox>
+			<listbox id="companyList" width="450px" height="300px">
+				<listhead>
+					<listheader width="50px" label="id" sort="auto(idcompany)" />
+					<listheader width="250px" label="name" sort="auto(name)" />
+					<listheader width="140px" label="country" sort="auto(country)" />
+				</listhead>
+			</listbox>
+			<grid id="editCompanyGrid" width="450px">
+				<auxhead>
+					<auxheader colspan="2" label="Add/Edit Company Info" />
+				</auxhead>
+				<columns visible="false">
+					<column width="50px" />
+					<column width="250px" />
+					<column width="140px" />
+				</columns>
+				<rows>
+					<row>
+						<cell><intbox width="50px" value="@{companyDiv$composer.company.idcompany}" disabled="true" /></cell>
+						<cell><textbox width="250px" value="@{companyDiv$composer.company.name}" /></cell>
+						<cell><textbox width="140px" value="@{companyDiv$composer.company.country}" /></cell>
+					</row>
+					<row>
+						<cell colspan="4" align="center">
+							<button id="createCompany" label="add" /><space spacing="10px"/>
+							<button id="updateCompany" label="update" disabled="true"/><space spacing="10px"/>
+							<button id="deleteCompany" label="delete" disabled="true"/>
+							<button id="resetCompany" label="reset" />
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</vbox>
+	</div>
+	<div id="contactDiv" apply="com.iknition.firstzk.view.controller.ContactController" visible="false">
+		<vbox>
+			<listbox id="contactList" width="450px" height="300px">
+				<listhead>
+					<listheader width="50px" label="id" sort="auto(idcontact)" />
+					<listheader width="140px" label="name" sort="auto(name)" />
+					<listheader width="250px" label="email" sort="auto(email)" />
+				</listhead>
+			</listbox>
+			<grid id="editContactGrid" width="450px">
+				<auxhead>
+					<auxheader colspan="2" label="Add/Edit Contact Info" />
+				</auxhead>
+				<columns visible="false">
+					<column width="50px" />
+					<column width="140px" />
+					<column width="250px" />
+				</columns>
+				<rows>
+					<row>
+						<cell><intbox width="50px" value="@{contactDiv$composer.contact.idcontact}" disabled="true" /></cell>
+						<cell><textbox width="140px" value="@{contactDiv$composer.contact.name}" /></cell>
+						<cell><textbox width="250px" value="@{contactDiv$composer.contact.email}" /></cell>
+					</row>
+					<row>
+						<cell colspan="4" align="center">
+							<button id="createContact" label="add" /><space spacing="10px"/>
+							<button id="updateContact" label="update" disabled="true"/><space spacing="10px"/>
+							<button id="deleteContact" label="delete" disabled="true"/>
+							<button id="resetContact" label="reset" />
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</vbox>
+	</div>
+	</hlayout>
 </zk>

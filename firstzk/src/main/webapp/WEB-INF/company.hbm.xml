@@ -1,0 +1,13 @@
+<hibernate-mapping package="com.iknition.firstzk.beans">
+    <class name="Company" table="company">
+        <id name="idcompany" column="idcompany" type="integer">
+            <generator class="increment" />
+        </id>
+        <property name="name" column="name" type="string"/>
+        <property name="country" column="country" type="string"/>
+        <set name="contacts">
+            <key column="companyId"/>
+            <one-to-many class="com.iknition.firstzk.Contact"/>
+        </set>
+    </class>
+</hibernate-mapping>
