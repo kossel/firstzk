@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: firstzk
+Specification-Version: 0.0.1-SNAPSHOT
+Implementation-Title: com.iknition.firstzk
+Implementation-Version: 0.0.1-SNAPSHOT
