@@ -6,9 +6,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import static javax.persistence.GenerationType.IDENTITY;
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
+
+@Entity
+@Table (appliesTo = "company")
 public class Company implements Serializable {
 	
 	private static final long serialVersionUID = 20111130110622L;
+	
 	
 	private Integer idcompany;
 	private String name;
@@ -22,7 +31,9 @@ public class Company implements Serializable {
 		this.name = name;
 		this.country = country;
 	}
-
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	public Integer getIdcompany() {
 		return idcompany;
 	}

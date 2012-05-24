@@ -42,6 +42,10 @@
 		    <id>Hibernate repository</id>
 		    <url>https://repository.jboss.org/nexus/content/groups/public/</url>
 		</repository>
+		<repository>
+		    <id>Hibernate repository</id>
+		    <url>http://http://repository.jboss.org/nexus/content/groups/public/org/hibernate/</url>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -152,6 +156,17 @@
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-c3p0</artifactId>
 	    <version>${hibernate.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>hibernate-annotations</groupId>
+		<artifactId>hibernate-annotations</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+ 
+	<dependency>
+		<groupId>hibernate-commons-annotations</groupId>
+		<artifactId>hibernate-commons-annotations</artifactId>
+		<version>${hibernate.version}</version>
 	</dependency>
 	<!-- MySql dependency -->
 	<dependency>

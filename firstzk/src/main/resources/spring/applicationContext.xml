@@ -19,15 +19,22 @@
         <property name="password" value="${jdbc.password}" />
     </bean>
      
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">-->
+     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- set other Hibernate properties in hibernate.cfg.xml file -->
         <property name="configLocation" value="classpath:database/hibernate.cfg.xml" />
-        <property name="mappingLocations">
+       <!--  <property name="mappingLocations">
             <list>
                 <value>classpath:hibernate/*.hbm.xml</value>
             </list>
-        </property>
+        </property>-->
+        <property name="annotatedClasses">
+			<list>
+				<value>com.iknition.firstzk.beans.Company</value>
+				<value>com.iknition.firstzk.beans.Contact</value>
+			</list>
+  		</property>
     </bean>
      
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

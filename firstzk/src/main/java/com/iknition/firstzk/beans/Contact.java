@@ -1,15 +1,33 @@
 package com.iknition.firstzk.beans;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
+
+@Entity
+@Table (appliesTo = "contact")
 public class Contact implements Serializable {
-    private Integer idcontact;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer idcontact;
     private Company company;
     private String name;
     private String email;
      
     public Contact() {}
 
+    @Id
+	@GeneratedValue(strategy = IDENTITY)
 	public Integer getIdcontact() {
 		return idcontact;
 	}
@@ -18,6 +36,7 @@ public class Contact implements Serializable {
 		this.idcontact = idcontact;
 	}
 
+	@ManyToOne(cascade = CascadeType.ALL)
 	public Company getCompany() {
 		return company;
 	}
