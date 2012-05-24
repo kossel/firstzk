@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.iknition.firstzk.beans">
-    <class name="Company" table="company">
+<hibernate-mapping>
+    <class name="com.iknition.firstzk.beans.Company" table="company">
         <id name="idcompany" column="idcompany" type="integer">
             <generator class="increment" />
         </id>
         <property name="name" column="name" type="string"/>
         <property name="country" column="country" type="string"/>
-      <!--   <set name="contacts">
-            <key column="companyId"/>
+        <set name="contacts">
+            <key column="idcompany"/>
             <one-to-many class="com.iknition.firstzk.beans.Contact"/>
-        </set> -->
+        </set> 
     </class>
 </hibernate-mapping>

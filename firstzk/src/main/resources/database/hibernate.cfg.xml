@@ -8,7 +8,8 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
          
-        <mapping resource="com/iknition/firstzk/hibernate/Company.hbm.xml" />
-        <mapping resource="com/iknition/firstzk/hibernate/Contact.hbm.xml" /> 
+      <!--   <mapping resource="hibernate/Company.hbm.xml" />
+        <mapping resource="hibernate/Contact.hbm.xml" />--> 
+		 
     </session-factory>
 </hibernate-configuration>

@@ -19,7 +19,10 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 	<display-name>firstzk</display-name>
 
 	<!-- //// -->
-	
+	 <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:/spring/applicationContext.xml</param-value>
+        </context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

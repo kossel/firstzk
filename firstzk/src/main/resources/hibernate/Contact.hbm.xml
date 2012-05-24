@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.iknition.firstzk.beans">
-    <class name="Contact" table="contact">
+<hibernate-mapping>
+    <class name="com.iknition.firstzk.beans.Contact" table="contact">
         <id name="idcontact" column="idcontact" type="integer">
             <generator class="increment" />
         </id>
         <property name="name" column="name" type="string" />
         <property name="email" column="email" type="string" />
-        <many-to-one name="company" column="companyId" class="com.iknition.firstzk.beans.Company" outer-join="true" />
+        <many-to-one name="company" column="idcompany" class="com.iknition.firstzk.beans.Company" outer-join="true" />
     </class>
 </hibernate-mapping>
