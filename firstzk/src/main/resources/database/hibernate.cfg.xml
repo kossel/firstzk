@@ -10,6 +10,6 @@
          
       <!--   <mapping resource="hibernate/Company.hbm.xml" />
         <mapping resource="hibernate/Contact.hbm.xml" />--> 
-		 
+	
     </session-factory>
 </hibernate-configuration>
