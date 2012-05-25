@@ -62,6 +62,7 @@ public class CompanyController extends GenericForwardComposer {
 		updateCompany.setDisabled(false);
 		deleteCompany.setDisabled(false);
 		// used for Hibernate lazy-loading
+                System.out.println("id es: "+_company.getIdcompany());
 		_company = (Company) ServiceLocator.getHibernateSession().merge(_company);
 		Event event = new Event("onLoad", page.getFellow("contactDiv"), _company);
 		EventQueues.lookup("loadContact", EventQueues.DESKTOP, true).publish(event);

@@ -8,7 +8,7 @@ import org.zkoss.zkplus.spring.SpringUtil;
 public class ServiceLocator {
 	 
     private ServiceLocator() {}
- 
+   
 	public static Session getHibernateSession() {
 		return ((SessionFactory) SpringUtil.getBean("sessionFactory", SessionFactory.class)).getCurrentSession();
 	}
