@@ -42,8 +42,9 @@ public class CompanyManagerImpl implements CompanyManager {
     @Transactional(readOnly = true)
     public Company getCompany(Integer id) {
         try {
-            return companyDAO.find(Company.class, id);
+            return companyDAO.findFetch(Company.class, id);
         } catch (DataAccessException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -53,6 +54,7 @@ public class CompanyManagerImpl implements CompanyManager {
         try {
             return companyDAO.findAll(Company.class);
         } catch (DataAccessException e) {
+            e.printStackTrace();
             return null;
         }
     }

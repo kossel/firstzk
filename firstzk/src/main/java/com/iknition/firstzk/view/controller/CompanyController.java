@@ -5,10 +5,12 @@ import com.iknition.firstzk.beans.Company;
 import com.iknition.firstzk.service.CompanyManager;
 import com.iknition.firstzk.service.ServiceLocator;
 import com.iknition.firstzk.view.controller.renderer.CompanyListRenderer;
+import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.EventQueues;
+import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zul.Button;
@@ -36,7 +38,8 @@ public class CompanyController extends GenericForwardComposer {
 		super.doAfterCompose(comp);
 		binder = (AnnotateDataBinder) page.getAttribute("binder");
 		_company = new Company();
-		companyList.setModel(new ListModelList(manager.getCompanyList()));
+                List companies = manager.getCompanyList();
+		companyList.setModel(new ListModelList(companies));
 		companyList.setItemRenderer(new CompanyListRenderer());
 	}
 	
@@ -57,14 +60,15 @@ public class CompanyController extends GenericForwardComposer {
 	//set selection to edit data
 	public void onSelect$companyList() {
 		_company = (Company) companyList.getSelectedItem().getValue();
-		binder.loadComponent(editCompanyGrid);
+		Company companyl = manager.getCompany(_company.getIdcompany());
+                binder.loadComponent(editCompanyGrid);
 		createCompany.setDisabled(true);
 		updateCompany.setDisabled(false);
 		deleteCompany.setDisabled(false);
 		// used for Hibernate lazy-loading
                 System.out.println("id es: "+_company.getIdcompany());
-		_company = (Company) ServiceLocator.getHibernateSession().merge(_company);
-		Event event = new Event("onLoad", page.getFellow("contactDiv"), _company);
+		//_company = (Company) ServiceLocator.getHibernateSession().merge(_company);
+		Event event = new Event("onLoad", page.getFellow("contactDiv"), companyl);
 		EventQueues.lookup("loadContact", EventQueues.DESKTOP, true).publish(event);
 	}
 	
@@ -79,7 +83,9 @@ public class CompanyController extends GenericForwardComposer {
 	}
 	
 	//register onClick event for updating edited data in list model
-	public void onClick$updateCompany() throws InterruptedException {
+	//public void onClick$updateCompany() throws InterruptedException {
+        @Listen("onClick=#updateCompany")
+            public void caca(Event event)  throws InterruptedException {    
 		Listitem listItem = companyList.getSelectedItem();
 		manager.save(_company);
 		listItem.setValue(_company);

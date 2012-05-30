@@ -21,6 +21,11 @@ public class CompanyDAO extends HibernateDaoSupport {
         Company company = (Company) getHibernateTemplate().load(clazz, id);
         return company;
     }
+    
+    public Company findFetch(Class<Company> clazz, Integer id) throws DataAccessException {
+        Company company = (Company) getHibernateTemplate().find("from Company c left join fetch c.contacts where c.idcompany=?",id).get(0);
+        return company;
+    }
      
     public List<Company> findAll(Class<Company> clazz) throws DataAccessException {
         List<Company> list = getHibernateTemplate().find("from " + clazz.getName());

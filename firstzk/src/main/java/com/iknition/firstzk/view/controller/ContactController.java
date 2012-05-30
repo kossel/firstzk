@@ -54,7 +54,7 @@ public class ContactController extends GenericForwardComposer {
 	private ListModel setContactModel(Company company) {
 		List<Contact> contacts = new ArrayList<Contact>();
 		if(company.getContacts() != null)
-			contacts.addAll(company.getContacts());
+		contacts.addAll(company.getContacts());
 		return new ListModelList(contacts);
 	}
 	
