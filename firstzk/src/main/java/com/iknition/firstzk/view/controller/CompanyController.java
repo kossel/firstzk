@@ -38,7 +38,7 @@ public class CompanyController extends GenericForwardComposer {
 		super.doAfterCompose(comp);
 		binder = (AnnotateDataBinder) page.getAttribute("binder");
 		_company = new Company();
-                List companies = manager.getCompanyList();
+                List<Company> companies = manager.getCompanyList();
 		companyList.setModel(new ListModelList(companies));
 		companyList.setItemRenderer(new CompanyListRenderer());
 	}

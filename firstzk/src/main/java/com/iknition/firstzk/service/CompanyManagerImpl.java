@@ -52,7 +52,8 @@ public class CompanyManagerImpl implements CompanyManager {
     @Transactional(readOnly = true)
     public List<Company> getCompanyList() {
         try {
-            return companyDAO.findAll(Company.class);
+            List<Company> l = companyDAO.findAll(Company.class);
+            return l;
         } catch (DataAccessException e) {
             e.printStackTrace();
             return null;

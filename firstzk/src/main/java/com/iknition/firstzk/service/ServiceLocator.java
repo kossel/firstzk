@@ -2,7 +2,8 @@ package com.iknition.firstzk.service;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.spring.SpringUtil;
+
 
 
 public class ServiceLocator {
@@ -14,6 +15,7 @@ public class ServiceLocator {
 	}
 	
 	public static CompanyManager getCompanyManager() {
+                System.out.println("singletoooon");
 		return (CompanyManager) SpringUtil.getBean("companyManager", CompanyManager.class);
 	}
 	

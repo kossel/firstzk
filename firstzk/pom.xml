@@ -196,6 +196,11 @@
                     <artifactId>spring-security-web</artifactId>
                     <version>${spring.security.version}</version>
                 </dependency>
+                <dependency>
+                    <groupId>org.zkoss.zk</groupId>
+                    <artifactId>zkspring-core</artifactId>
+                    <version>3.0</version>
+                </dependency>
 	<!-- MySql dependency -->
 	<dependency>
 	    <groupId>mysql</groupId>
